@@ -32,7 +32,7 @@
     "xmlhttprequest",
     "web"
   ],
-  "main": "./httpinvoke-commonjs.js",
+  "main": "./httpinvoke-browser.js",
   "private": false,
   "dependencies": {},
   "devDependencies": {
