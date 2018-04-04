@@ -377,8 +377,12 @@ inputHeaders = (function(input) {
     return output;
 })(options.headers || {});
 outputHeaders = {};
+noExposeHeaders = options.noExposeHeaders || [];
 exposedHeaders = options.corsExposedHeaders || [];
 exposedHeaders.push.apply(exposedHeaders, ['Cache-Control', 'Content-Language', 'Content-Type', 'Content-Length', 'Expires', 'Last-Modified', 'Pragma', 'Content-Range', 'Content-Encoding']);
+exposedHeaders = exposedHeaders.filter(function(header){
+    return noExposeHeaders.indexOf(header) === -1;
+});
 /*************** COMMON convert and validate parameters **************/
 var validateInputHeaders = function(headers) {
     var noSec = httpinvoke.forbiddenInputHeaders.indexOf('sec-*') >= 0;
