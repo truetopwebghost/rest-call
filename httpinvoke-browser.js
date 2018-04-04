@@ -377,8 +377,8 @@ inputHeaders = (function(input) {
     return output;
 })(options.headers || {});
 outputHeaders = {};
-noExposeHeaders = options.noExposeHeaders || [];
-var exposedHeaders = options.corsExposedHeaders || [];
+var noExposeHeaders = options.noExposeHeaders || [];
+exposedHeaders = options.corsExposedHeaders || [];
 exposedHeaders.push.apply(exposedHeaders, ['Cache-Control', 'Content-Language', 'Content-Type', 'Content-Length', 'Expires', 'Last-Modified', 'Pragma', 'Content-Range', 'Content-Encoding']);
 exposedHeaders = exposedHeaders.filter(function(header){
     return noExposeHeaders.indexOf(header) === -1;
